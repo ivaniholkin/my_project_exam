@@ -1,0 +1,15 @@
+html {
+  @include getCssVar(font-size);
+}
+
+body {
+  @include getCssVar(font-family);
+  @include getCssVar(background-color, gray);
+  font-size: 1rem;
+}
+
+/* .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 12px;
+} */

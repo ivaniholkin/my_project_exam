@@ -1,0 +1,101 @@
+================= Use css variables 
+1. назначаем SCSS переменную в файле 
+    src/scss/base/_vars.scss 
+Например
+      $gray: #e8e8e8;
+      $pink: #d63384;
+
+2. назначаем CSS переменную в файле 
+    src/scss/base/_root.scss 
+
+Файл не обязательно должен называться _root.scss 
+Главное что он должен быть подключен в src/scss/base/_index.scss 
+сразу после строки 
+  @import "mixins/utilites";
+
+---------------------------
+Назначать CSS variables можно через mixin
+setCssVar(ИМЯ_ПЕРЕМЕННОЙ_CSS, ЗНАЧЕНИЕ_ПЕРЕМЕННОЙ);
+
+например
+////  ------------- 🖍 src/scss/base/_root.scss
+@include setCssVar(bg-color, $gray);
+
+или так, но так долго писать и лучше через mixin  
+    --#{$prefix}#{$cssProp}: #{$val};
+--------------------------------- //// 
+
+
+-------- Получение CSS variables 
+Получать CSS variables можно через mixin
+   getCssVar(СВОЙСТВО_CSS, ИМЯ_ПЕРЕМЕННОЙ_CSS)
+
+Например в файле src/scss/layouts/layout_000/_general.scss 
+ 
+////  ------------------------- 🖍
+body {
+  @include getCssVar(background-color, bg-color);
+}
+
+--------------------------------------------- ////
+
+
+
+==============📣 tailwind
+Если будем использовать tailwind тов файле 
+      src/scss/base/_index.scss 
+- раскоментировать строку
+    @import "tailwind";
+- закоментировать строку 
+  @import "normalize"
+
+That's all. We can use tailwind
+
+================= Plugins VSC 
+1. Tailwind CSS IntelliSense
+https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+
+2.  Tailwind Docs
+https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs
+
+https://tailwindcss.com
+https://www.tailwind-kit.com
+https://headlessui.com
+https://daisyui.com
+
+
+
+
+
+====================================== 
+Настройки tailwind
+
+////  ------------------------- 🖍 tailwind.config.js
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {},
+  plugins: [],
+};
+
+--------------------------------------------- ////
+
+
+
+================= For package developer
+////  ------------------------- 🖍 postcss.config.js
+
+module.exports = () => {
+  return {
+    plugins: [
+      require("./tailwind.config.js"),
+      require("tailwindcss"),
+      require("autoprefixer"),
+    ],
+  };
+};
+
+--------------------------------------------- ////
+
+
+
+npm i postcss postcss-loader tailwindcss autoprefixer
