@@ -1,0 +1,12 @@
+.slider{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: 300px;
+    article{
+        display: flex;
+        gap: 20px;
+        padding-inline-start: 10px;
+        min-width: calc(100vw - 20px);
+    }
+}
