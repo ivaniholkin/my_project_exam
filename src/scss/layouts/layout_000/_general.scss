@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  width: 100%;
   @include getCssVar(font-family);
   @include getCssVar(background-color, gray);
   font-size: 1rem;
