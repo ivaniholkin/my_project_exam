@@ -4,12 +4,7 @@ html {
 
 body {
   @include getCssVar(font-family);
-  @include getCssVar(background-color, gray);
+  @include getCssVar(background-color, $white);
   font-size: 1rem;
+  position: relative;
 }
-
-/* .container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 12px;
-} */
