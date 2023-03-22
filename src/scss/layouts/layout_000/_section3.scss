@@ -1,0 +1,37 @@
+.educathion {
+  width: 100vw;
+  height: 100vh;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-top: 5rem;
+  padding-inline: 5vw 15vw;
+  position: relative;
+  overflow-y: hidden;
+  h2 {
+    margin: 0;
+    color: $red;
+    word-wrap: break-word;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0.01em;
+  }
+  .text {
+    color: $black;
+    line-height: 130%;
+    padding-inline: 0 10vw;
+  }
+  .logo {
+    position: absolute;
+    min-width: 90vw;
+    bottom: -28%;
+    svg {
+    //   width: 90vw;
+    }
+  }
+}
+
+.motiv{
+    @extend .educathion
+}
